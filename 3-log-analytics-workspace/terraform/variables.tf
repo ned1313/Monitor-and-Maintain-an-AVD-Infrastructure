@@ -16,8 +16,8 @@ variable "sku_name" {
     default = "PerGB2018"
 }
 
-variable "sku_capacity" {
+variable "retention_in_days" {
   type        = number
-  description = "The capacity of the SKU to use for the Log Analytics Workspace"
-    default = 1000
+  description = "The retetion in days to use for the Log Analytics Workspace"
+    default = 30
 }

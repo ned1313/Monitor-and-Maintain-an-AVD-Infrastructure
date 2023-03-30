@@ -11,11 +11,8 @@ resource "azurerm_log_analytics_workspace" "main" {
   name                = "${var.naming_prefix}-insights"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
-
-  sku {
-    name     = var.sku_name
-    capacity = var.sku_capacity
-  }
+  sku = var.sku_name
+  retention_in_days   = var.retention_in_days
 }
 
 output "log_analytics_workspace_id" {

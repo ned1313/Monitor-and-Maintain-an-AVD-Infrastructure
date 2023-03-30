@@ -1,14 +1,17 @@
 $resourceGroupName = "avd-insights"
 $workspaceName = "avd-insights"
 $location = "westus"
-$skuName = "PerGB2018"
-$skuCapacity = 1000
+$sku = "PerGB2018"
+$subName = "SubscriptionName"
+
+Add-AzAccount
+
+Get-AzSubscription -SubscriptionName $subName | Select-AzSubscription
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 New-AzOperationalInsightsWorkspace `
     -ResourceGroupName $resourceGroupName `
-    -WorkspaceName $workspaceName `
+    -Name $workspaceName `
     -Location $location `
-    -SkuName $skuName `
-    -SkuCapacity $skuCapacity
+    -Sku $sku
